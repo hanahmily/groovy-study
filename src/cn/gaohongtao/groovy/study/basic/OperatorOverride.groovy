@@ -5,6 +5,10 @@ class Man {
         this.sex = sex;
     }
 
+    boolean getSex() {
+        return sex
+    }
+
     List<Man> plus(Man man) {
         //异性生个娃
         if (man.sex != this.sex) {
@@ -24,6 +28,9 @@ assert 3 == (man + woman).size();
 def anotherMan = new Man(true);
 
 assert 2 == (man + anotherMan).size();
+
+Man realMan = man as Man;
+assert realMan.sex;
 //重载列表
 /*表 1. Groovy 的可重载操作符
 1.	比较操作符对应着普通的 Java equals 和 compareTo 实现
@@ -51,10 +58,15 @@ a / b	 a.divide(b)
 a++ or ++a	 a.next()
 a-- or --a	 a.previous()
 a << b	 a.leftShift(b)
+a >> b   a.rightShift(b)
+a <<< b	 a.leftShiftUnsigned(b)
+a >>> b   a.rightShiftUnsigned(b)
 
 表 4. 数组操作符
 操作符	方法
 a[b]	 a.getAt(b)
 a[b] = c	 a.putAt(b, c)
+
+a as type a.asType(typeClass)
 
 */
